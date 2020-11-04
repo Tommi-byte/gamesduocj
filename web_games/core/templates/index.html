@@ -1,17 +1,38 @@
-
 {% extends 'base.html' %}
 {% block content %}
-    <main class="container-fluid">
-        <section class="bg-dark p-5 bg-gradient text-center text-white">
-            <h1>{{titulo}}</h1>
-        </section>
-        <section>
-            <ul>
-                {% for p in productos%}
-                    <li><span>{{p.nombre}}</span> <span class="text-warning">{{p.precio}}</span></li>
-                {% endfor %}
-            </ul>
-        </section>
-    </main>
-{% endblock%}
+<main class="container-fluid">
+    <section class="bg-dark p-5 bg-gradient text-center text-white">
+        <h1>{{titulo}}</h1>
+    </section>
+    <section class="container-fluid">
+        <div class="row mt-5">
+            <div class="col-lg-8 col-md-6 col-sm-12 mx-auto">
+                <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                    <!--Esto se va repetir por cada segundo -->
+                        {% for p in productos %}
+                        <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
+                            <img src="{{p.imagen.url}}" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>{{p.titulo}}</h5>
+                                <p>{{p.descripcion | safe }}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    <!--hasta aqui se repite por cada producto-->
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </a>
+                </div>
 
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock%}

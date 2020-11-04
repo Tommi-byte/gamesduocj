@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+    {% load humanize%}
+    
+
+   <main class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-lg-6 col-md-8 col-sm-12 mx-auto">
+                <div class="row bg-gradient text-white">
+                    <div class="col-sm-12 text-center">
+                        <h1>{{producto.titulo}}</h1>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-sm-12">
+                        <img src="{{producto.imagen.url}}" class="img-fluid">
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <p class="col-sm-12">{{producto.descripcion | safe }}</p>
+                </div>
+                <div class="row mt-2">
+                    {% if producto.estaEnOferta %}
+                        <div class="col-sm-12 bg-warning text-white">
+                        
+                    {% else %}
+                        <div class="col-sm-12">
+                    {% endif %}
+                            <p>$ {{producto.precio | intcomma }}</p>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+   </main>
+
+{% endblock %}

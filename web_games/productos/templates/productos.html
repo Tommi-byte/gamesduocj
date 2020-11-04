@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     {% load humanize%}
+    
 
    <main class="container-fluid mt-5">
         <div class="row">
@@ -16,21 +17,22 @@
             {% for p in productos %}
             <div class="col-sm-12 col-md-6 col-lg-3">
                 <div class="card">
-                    <div class="card-header {% if p.estaEnOferta %}bg-danger {% else%}bg-warning {% endif %} text-white">
+                    <div class="card-header {% if p.estaEnOferta %} bg-danger {% else%} bg-warning {% endif %} text-white">
                     {% if p.estaEnOferta %}
                         <i class="icono-oferta fas fa-cart-arrow-down"></i>
                     {% endif %}
                         <span>{{p.titulo}}</span>
                     </div>
-                    <div class="card-body text-centrer" >
-                        <img src="{{p.imagen}}" class="img-prod">
+                    <div class="card-body text-center" >
+                        <img src="{{p.imagen.url}}" class="img-prod">
                     </div>
                     <div class="card-footer">
                         {% if p.estaEnOferta %}
-                            <h4 class="badge bg-danger">$ {{p.precio | intcomma}}</h4>
+                            <h4 class="badge bg-danger texto-oferta">$ {{p.precio | intcomma}}</h4>
                         {%else%}
                             <h6>$ {{p.precio | intcomma}}</h6>
                         {% endif%}
+                        <a href="{% url 'producto' p.id %}">Ver</a>
                     </div>
                 </div>
             </div>

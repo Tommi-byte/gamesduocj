@@ -32,7 +32,7 @@
                         {%else%}
                             <h6>$ {{p.precio | intcomma}}</h6>
                         {% endif%}
-                        <a href="{% url 'producto' p.id %}">Ver</a>
+                        <a class="btn btn-warning btn-block" href="{% url 'producto' p.id %}">Ver</a>
                     </div>
                 </div>
             </div>

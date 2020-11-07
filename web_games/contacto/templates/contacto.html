@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container-fluid mt-5">
+        <div class="col-sm-12 bg-dark bg-gradient text-white text-centrer">
+            <h1>Contactenos para solicitar informacion adicional</h1>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <form action="" method="POST" class="col-lg-6 col-sm-12 mx-auto">
+        {% csrf_token %}
+            <div class="form-group">
+                <label for="">Nombre</label>
+                {{form.nombre}}
+                {{form.nombre.errors}}
+            </div>
+            <div class="form-group">
+                <label for="">Correo</label>
+                {{form.correo}}
+                {{form.corre.errors}}
+            </div>
+            <div class="form-group">
+                <label for="">Mensaje</label>
+                {{form.mensaje}}
+                {{form.mensaje.errors}}
+            </div>
+            <button type="submit" class="btn btn-info btn-block">Enviar</button>
+        </form>
+
+     </div>
+
+{% endblock %}

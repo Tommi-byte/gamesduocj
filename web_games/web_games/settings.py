@@ -131,7 +131,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #Configuración de corre de Django
 
 EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = "ejemplo@gmail.com"
+EMAIL_HOST_USER = "tomi.latin.99@gmail.com"
 EMAIL_PORT = '587'
-EMAIL_HOST_PASSWORD = "ejemplo1234"
+EMAIL_HOST_PASSWORD = "13061975Cc"
 EMAIL_USE_TLS = True

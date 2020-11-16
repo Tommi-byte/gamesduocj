@@ -16,15 +16,15 @@ def contacto(request):
             correo = request.POST.get("correo",'')
             mensaje = request.POST.get("mensaje", '')
             email = EmailMessage("Le han contactado!",
-            "{} {}: dijo {}".forms(nombre,correo,mensaje),
-            "ejemplo@gmail.com",
-            ['ejemplo@gmail.com'],
+            "{} {}: dijo {}".format(nombre,correo,mensaje),
+            "tomi.latin.99@gmail.com",
+            ['tomi.latin.99@gmail.com'],
             reply_to=[correo])
             try:
                 email.send()
-                return redirect(reverse('contacto'))
+                return redirect(reverse('contacto')+"?ok")
             except Exception as e:
-                return redirect(reverse('contacto'))
+                return redirect(reverse('contacto')+"?error")
     return render(request, "contacto.html", {'form':formulario})
 
 

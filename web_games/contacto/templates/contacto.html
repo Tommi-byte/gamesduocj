@@ -6,21 +6,34 @@
         </div>
     </div>
 
+    {% if 'ok' in request.GET %}
+        <div class="row mt-5">
+            <div class="col-sm-12 col-lg-6 mx-auto">
+                <p class="alert alert-info text-center text-black">Mensaje enviado correctamente!</p>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if 'error' in request.GET %}
+        <div class="row mt-5">
+            <div class="col-sm-12 col-lg-6 mx-auto">
+                <p class="alert alert-error text-center text-black">Mensaje enviado correctamente!</p>
+            </div>
+        </div>
+    {% endif %}
+
     <div class="row mt-5">
         <form action="" method="POST" class="col-lg-6 col-sm-12 mx-auto">
         {% csrf_token %}
             <div class="form-group">
-                <label for="">Nombre</label>
                 {{form.nombre}}
                 {{form.nombre.errors}}
             </div>
             <div class="form-group">
-                <label for="">Correo</label>
                 {{form.correo}}
                 {{form.corre.errors}}
             </div>
             <div class="form-group">
-                <label for="">Mensaje</label>
                 {{form.mensaje}}
                 {{form.mensaje.errors}}
             </div>
